@@ -1,4 +1,5 @@
 import { Clock3 } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 const items = [
   { title: "Pickup closes in 55 min", detail: "Fruit & yoghurt cups · Student Union Café" },
@@ -7,9 +8,9 @@ const items = [
 
 export function AttentionPanel() {
   return (
-    <section aria-labelledby="attention-heading">
-      <h2 id="attention-heading" className="text-base font-semibold">Needs attention</h2>
-      <div className="mt-3 divide-y divide-border border-y border-border">
+    <Card role="region" aria-labelledby="attention-heading" className="overflow-hidden">
+      <h2 id="attention-heading" className="border-b border-border px-5 py-4 text-base font-semibold">Needs attention</h2>
+      <div className="divide-y divide-border px-5">
         {items.map((item) => (
           <div key={item.title} className="flex gap-3 py-4">
             <Clock3 className="mt-0.5 size-4 shrink-0 text-warning-foreground" aria-hidden="true" />
@@ -17,6 +18,6 @@ export function AttentionPanel() {
           </div>
         ))}
       </div>
-    </section>
+    </Card>
   );
 }

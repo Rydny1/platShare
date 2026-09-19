@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 import { MoreHorizontal, Search, Soup } from "lucide-react";
 
-import { AddFoodDialog } from "@/components/dashboard/page-header";
 import { ClaimProgress } from "@/components/dashboard/claim-progress";
 import { FoodStatusBadge } from "@/components/dashboard/status-badge";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { FoodListing } from "@/lib/types";
@@ -48,15 +48,15 @@ export function ActiveOffers({ offers, showSearch = false }: { offers: FoodListi
   const filteredOffers = useMemo(() => offers.filter((offer) => matchesFilter(offer, filter) && `${offer.name} ${offer.location}`.toLowerCase().includes(query.toLowerCase())), [filter, offers, query]);
 
   return (
-    <section className="overflow-hidden border-y border-border" aria-labelledby="active-offers-heading">
-      <div className="flex flex-col gap-4 border-b border-border py-5">
+    <Card className="overflow-hidden" role="region" aria-labelledby="active-offers-heading">
+      <div className="flex flex-col gap-4 border-b border-border p-4 sm:p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h2 id="active-offers-heading" className="text-lg font-semibold">Active offers</h2>
           </div>
           <span className="shrink-0 text-xs text-muted-foreground">{offers.filter((offer) => offer.status === "available" || offer.status === "almost-claimed").length} open</span>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="grid w-full grid-cols-4 gap-1 sm:flex sm:w-auto sm:overflow-x-auto" aria-label="Filter food offers">
             {filters.map((item) => (
               <button key={item.value} type="button" onClick={() => setFilter(item.value)} className={cn("min-h-10 shrink-0 border-b-2 px-1 text-xs font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-3 sm:text-sm", filter === item.value ? "border-foreground text-foreground" : "border-transparent text-muted-foreground hover:text-foreground")} aria-pressed={filter === item.value}>
@@ -78,8 +78,7 @@ export function ActiveOffers({ offers, showSearch = false }: { offers: FoodListi
         <div className="flex flex-col items-center px-5 py-14 text-center">
           <Soup className="size-5 text-muted-foreground" aria-hidden="true" />
           <h3 className="mt-4 font-semibold">No offers found</h3>
-          <p className="mt-1 max-w-sm text-sm text-muted-foreground">Try another filter or add an offer.</p>
-          <div className="mt-5"><AddFoodDialog /></div>
+          <p className="mt-1 max-w-sm text-sm text-muted-foreground">Try another filter.</p>
         </div>
       ) : (
         <>
@@ -110,6 +109,6 @@ export function ActiveOffers({ offers, showSearch = false }: { offers: FoodListi
           </div>
         </>
       )}
-    </section>
+    </Card>
   );
 }

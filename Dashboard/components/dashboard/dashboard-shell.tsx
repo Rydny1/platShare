@@ -45,14 +45,14 @@ function Navigation({ onMobile = false }: { onMobile?: boolean }) {
 export function DashboardShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background lg:grid lg:grid-cols-[232px_1fr]">
-      <aside className="sticky top-0 hidden h-screen border-r border-border bg-background px-4 py-5 lg:flex lg:flex-col">
+      <aside className="sticky top-0 hidden h-screen border-r border-border bg-card px-4 py-5 lg:flex lg:flex-col">
         <div className="px-2"><Brand /></div>
         <div className="mt-8"><Navigation /></div>
         <p className="mt-auto px-3 text-xs text-muted-foreground">Campus operations</p>
       </aside>
 
       <div className="min-w-0">
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background px-4 lg:hidden">
+        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-card px-4 lg:hidden">
           <Brand />
           <Sheet>
             <SheetTrigger asChild>

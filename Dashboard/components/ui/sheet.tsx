@@ -14,7 +14,7 @@ function SheetContent({ className, children, ...props }: React.ComponentProps<ty
   return (
     <DialogPrimitive.Portal>
       <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/20" />
-      <DialogPrimitive.Content className={cn("fixed inset-y-0 left-0 z-50 w-[min(20rem,86vw)] border-r border-border bg-background p-4 shadow-lg outline-none", className)} {...props}>
+      <DialogPrimitive.Content className={cn("fixed inset-y-0 left-0 z-50 w-[min(20rem,86vw)] border-r border-border bg-card p-4 shadow-lg outline-none", className)} {...props}>
         {children}
         <DialogPrimitive.Close className="absolute right-3 top-3 grid size-10 place-items-center rounded-lg text-muted-foreground outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring" aria-label="Close navigation">
           <X className="size-4" />

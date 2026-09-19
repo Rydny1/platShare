@@ -5,7 +5,7 @@ import { foodListings } from "@/lib/mock-data";
 export default function FoodOffersPage() {
   return (
     <div className="space-y-7">
-      <PageHeader title="Food offers" description="Availability and pickup times." action />
+      <PageHeader title="Food offers" description="Availability and pickup times." />
       <ActiveOffers offers={foodListings} showSearch />
     </div>
   );
