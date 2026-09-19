@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-const SANDBOX_NUMBER = 'whatsapp:+4915888623971';
+const SANDBOX_NUMBER = 'whatsapp:+14155238886';
 
 // deadline is "HH:MM" string, compares against current time same day
 function isPastDeadline(deadline) {
